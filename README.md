@@ -1,25 +1,54 @@
-<<<<<<< HEAD
-☀️ <h1>Create a Live Wather Check Your City</h1><br><br><br>
+# 🌦️ Weather App
 
-🌞<h3>Real Time Wather and auto detected your city</h3><br><br>
+A modern and responsive **React-based Weather Application** that allows users to check real-time weather data using either their **current location (GPS tracking)** or by **searching any city worldwide**.  
 
-🌄<h3>Data show a Sunrise and Sunset</h3>🌅
+🔗 **Live Demo:** [https://wather-vert.vercel.app/]
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✅ **Live Weather Data** – Displays temperature, humidity, wind speed, and sky condition in real time.  
+✅ **Current Location Support** – Detects your location automatically and shows the weather instantly.  
+✅ **Search by City** – Type any city name to get accurate weather information.  
+✅ **Dynamic UI** – Background color/gradient changes according to the weather (Sunny, Rainy, Cloudy, etc.).  
+✅ **Responsive Design** – Works seamlessly across mobile, tablet, and desktop devices.  
+✅ **Error Handling** – Gracefully handles invalid city names or denied location permissions.  
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🧠 How It Works
 
-## Expanding the ESLint configuration
+1. On load, the app asks for your **location permission** using the browser’s Geolocation API.  
+2. If allowed, it fetches your current coordinates and gets weather data via the **Weather API**.  
+3. You can also **manually search** for any city and see the live weather instantly.  
+4. The app dynamically updates the **UI gradient and icons** based on weather conditions.  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# React_Web
-React First Web Cloan
->>>>>>> 837790199927e52bbe7aedb0d57b9af1d769ee9d
+---
+
+## 🛠️ Tech Stack
+
+- ⚛️ **React (Vite)**
+- 🎨 **Tailwind CSS**
+- 🌍 **WeatherAPI / OpenWeatherMap**
+- 🧩 **Lucide Icons**
+- 🚀 **Deployed on [Vercel](https://vercel.com)**
+
+---
+
+## ⚙️ Installation & Setup
+
+To run this project locally:
+
+```bash
+# Clone the repository
+git clone https://github.com/anuj-1104/wather_app.git
+
+# Go into the project folder
+cd wather_app
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
