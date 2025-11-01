@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ☀️ <h1>Create a Live Wather Check Your City</h1><br><br><br>
 
 🌞<h3>Real Time Wather and auto detected your city</h3><br><br>
@@ -18,3 +19,7 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+=======
+# React_Web
+React First Web Cloan
+>>>>>>> 837790199927e52bbe7aedb0d57b9af1d769ee9d
