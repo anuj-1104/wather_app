@@ -19,11 +19,13 @@ const WeatherApp = () => {
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [cityname, setCityName] = useState("Surat");
+  const [cityname, setCityName] = useState("Anand");
   const [searchCity, setSearchCity] = useState("");
   const [activeTab, setActiveTab] = useState("today");
+  const [time, setTime] = useState();
 
   const api = import.meta.env.VITE_WEATHER_API_KEY;
+
   const fetchWeather = async (city) => {
     try {
       setLoading(true);
@@ -91,21 +93,23 @@ const WeatherApp = () => {
             const city = loc.city || loc.locality || "Your Location";
             fetchWeather(city);
           } catch (error) {
-            fetchWeather("Surat"); // fallback city
+            fetchWeather("Anand"); // fallback city
           }
         },
-        () => fetchWeather("Surat") // fallback on error
+        () => fetchWeather("Anand") // fallback on error
       );
     } else {
-      fetchWeather("Surat"); // fallback if geolocation unsupported
+      fetchWeather("Anand"); // fallback if geolocation unsupported
     }
   };
 
-  const [time, setTime] = useState();
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(new Date().toLocaleTimeString().toUpperCase());
+    }, 1000);
 
-  setInterval(() => {
-    setTime(new Date().toLocaleTimeString().toUpperCase());
-  }, 1000);
+    return () => clearInterval(interval); // cleanup
+  }, []);
 
   //🔃 loading the data and wather fatch
   if (loading || !weather) {
@@ -258,21 +262,21 @@ const WeatherApp = () => {
 
           <div className="flex justify-around mt-6 pt-6 border-t border-white/20">
             <div className="text-center text-white">
-              <Sunrise className="w-8 h-8 mx-auto mb-2" />
+              <Sunrise className="w-8 h-8 mx-auto mb-2 animate-pulse" />
               <div className="text-sm opacity-80">Sunrise</div>
               <div className="text-lg font-semibold">
                 {weather.forecast.forecastday[0].astro.sunrise}
               </div>
             </div>
             <div className="text-center text-white">
-              <Sunset className="w-8 h-8 mx-auto mb-2" />
+              <Sunset className="w-8 h-8 mx-auto mb-2 animate-pulse" />
               <div className="text-sm opacity-80">Sunset</div>
               <div className="text-lg font-semibold">
                 {weather.forecast.forecastday[0].astro.sunset}
               </div>
             </div>
             <div className="text-center text-white">
-              <Thermometer className="w-8 h-8 mx-auto mb-2" />
+              <Thermometer className="w-8 h-8 mx-auto mb-2 animate-pulse" />
               <div className="text-sm opacity-80">UV Index</div>
               <div className="text-lg font-semibold">
                 {weather.forecast.forecastday[0].day.uv}
@@ -345,7 +349,7 @@ const WeatherApp = () => {
                   key={index}
                   className="flex items-center justify-between bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-all duration-300 cursor-pointer"
                 >
-                  <div className="flex items-center gap-4 flex-1">
+                  <div className="flex items-center flex-1">
                     <div className="text-white font-medium w-24">
                       {new Date(day.date).toLocaleDateString("en-IN", {
                         weekday: "short",
@@ -361,7 +365,7 @@ const WeatherApp = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4 text-white">
+                  <div className="flex items-center gap-2 text-white">
                     <span className="opacity-80">{day.day.mintemp_c}°</span>
                     <div className="w-24 h-2 bg-white/20 rounded-full overflow-hidden">
                       <div
